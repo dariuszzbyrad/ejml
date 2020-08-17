@@ -18,7 +18,7 @@
 
 package org.ejml.ops;
 
-import org.ejml.EjmlVersion;
+import org.ejml.UtilEjml;
 import org.ejml.data.*;
 
 import java.io.*;
@@ -99,7 +99,7 @@ public class MatrixIO {
     public static void saveMatrixMarketD( DMatrixSparse matrix , String floatFormat, Writer writer )
     {
         PrintWriter out = new PrintWriter(writer);
-        out.println("% Matrix Market Coordinate file written by EJML "+EjmlVersion.VERSION);
+        out.println("% Matrix Market Coordinate file written by EJML "+UtilEjml.getVersion());
         out.println("% printf format used '"+floatFormat+"'");
         out.printf("%9d %9d %9d\n",matrix.getNumRows(), matrix.getNumCols(), matrix.getNonZeroLength());
 
@@ -126,7 +126,7 @@ public class MatrixIO {
     public static void saveMatrixMarketF( FMatrixSparse matrix , String floatFormat, Writer writer )
     {
         PrintWriter out = new PrintWriter(writer);
-        out.println("% Matrix Market Coordinate file written by EJML "+EjmlVersion.VERSION);
+        out.println("% Matrix Market Coordinate file written by EJML "+UtilEjml.getVersion());
         out.println("% printf format used '"+floatFormat+"'");
         out.printf("%9d %9d %9d\n",matrix.getNumRows(), matrix.getNumCols(), matrix.getNonZeroLength());
 

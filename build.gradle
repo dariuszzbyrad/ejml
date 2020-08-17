@@ -24,7 +24,7 @@ plugins {
 }
 
 gversion {
-    srcDir = "main/ejml-core/src"
+    srcDir = "main/ejml-version/src"
     classPackage = "org.ejml"
     className = "EjmlVersion"
 }
@@ -279,7 +279,8 @@ def javadocProjects = [
         ':main:ejml-fsparse',
         ':main:ejml-zdense',
         ':main:ejml-cdense',
-        ':main:ejml-simple'
+        ':main:ejml-simple',
+        ':main:ejml-version'
 ]
 task alljavadoc(type: Javadoc) {
     // only include source code in src directory to avoid including 3rd party code which some projects do as a hack
@@ -318,7 +319,7 @@ wrapper {
     gradleVersion = '6.4.1'
 }
 
-project(':main:ejml-core').compileJava.dependsOn(createVersionFile)
+project(':main:ejml-version').compileJava.dependsOn(createVersionFile)
 
 // Disable the creation of jars for distribution.  If you don't do this it will crash
 [':main',':examples',':main:autocode'].each {String a ->

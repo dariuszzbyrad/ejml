@@ -27,6 +27,7 @@ import org.ejml.ops.ConvertFMatrixStruct;
 
 import javax.annotation.Nullable;
 import java.lang.annotation.Annotation;
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.text.DecimalFormat;
 import java.util.Arrays;
@@ -584,5 +585,19 @@ public class UtilEjml {
                 return true;
         }
         return false;
+    }
+
+    /**
+     * Provides access to EjmlVersion.VERSION without making `ejml-core` dependent on `ejml-version`. 99% of the
+     * time you should not use this function and should instead depend on `ejml-version`.
+     */
+    public static String getVersion() {
+        try {
+            Class<?> c = Class.forName("org.ejml.EjmlVersion");
+            Field f = c.getField("VERSION");
+            return (String)f.get(null);
+        } catch (ClassNotFoundException | NoSuchFieldException | IllegalAccessException e) {
+            return "UNKNOWN";
+        }
     }
 }
