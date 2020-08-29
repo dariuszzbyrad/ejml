@@ -251,7 +251,7 @@ public class QrHelperFunctions_DDRM {
         }
     }
 
-    // Useful for concurrent implimentations where you don't want to modify u[0] to set it to 1.0
+    // Useful for concurrent implementations where you don't want to modify u[0] to set it to 1.0
     public static void rank1UpdateMultR_u0(DMatrixRMaj A , double[] u, final double u_0,
                                            final double gamma ,
                                            final int colA0,

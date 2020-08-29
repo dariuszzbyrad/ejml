@@ -48,7 +48,7 @@ public abstract class CheckMultiThreadAgainstSingleThread {
     Class singleClass;
     Class threadedClass;
 
-    public CheckMultiThreadAgainstSingleThread(Class singleClass, Class threadedClass, int expectedFunctions) {
+    protected CheckMultiThreadAgainstSingleThread(Class singleClass, Class threadedClass, int expectedFunctions) {
         this.singleClass = singleClass;
         this.threadedClass = threadedClass;
         this.expectedFunctions = expectedFunctions;
